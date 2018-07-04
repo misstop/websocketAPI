@@ -79,7 +79,7 @@ while True:
                     "measurement": "Depth",
                     "timestamp": cur_time(),
                     "tick": {
-                        change_type: detail_ls[1][:2]
+                        change_type: detail_ls[1]
                     }
                 }
                 logging.info(dic)

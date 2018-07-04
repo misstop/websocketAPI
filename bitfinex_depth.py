@@ -8,7 +8,7 @@ import logging
 from websocket import create_connection
 from kafka import KafkaProducer
 
-日志设置
+# 日志设置
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%a, %d %b %Y %H:%M:%S',
@@ -41,7 +41,7 @@ def ws_connect():
     symbols = [x for x in symbols.split(',')]
     logging.info("已获取到symbols")
     print('已获取symbols')
-    print(symbols)
+    # print(symbols)
     for sym in symbols:
         ws.send(json.dumps({"event": "subscribe", "channel": "book", "symbol": 't' + sym.upper()}))
 
@@ -67,7 +67,7 @@ while True:
         if isinstance(detail_ls, dict):
             if detail_ls['event'] == 'subscribed':
                 maps[detail_ls['chanId']] = detail_ls['symbol'][1:].upper()
-                print(maps)
+                # print(maps)
                 logging.info("maps插入一条新的映射")
         if isinstance(detail_ls, list):
             # 判断该id是否在映射记录里面
@@ -79,25 +79,25 @@ while True:
                     "measurement": "Depth",
                     "timestamp": cur_time(),
                     "tick": {
-                        change_type: detail_ls[1].pop()
+                        change_type: detail_ls[1][:2]
                     }
                 }
                 logging.info(dic)
+                # print(dic)
                 producer.send('depth-dev', [dic])
-                logging.info("send successful")
+                logging.info("send successful > timestamp--%s" % cur_time())
                 # print('send successful')
         else:
             logging.info("类型有误")
-
             continue
     except Exception as e:
         try:
             print(e)
-            print("ws重连")
+            print("ws重连 时间--%s" % cur_time())
             time.sleep(1)
             ws_connect()
         except Exception as e:
             print(e)
-            print("重连失败，等五秒再次尝试")
+            print("重连失败，等五秒再次尝试 时间%s" % cur_time())
             time.sleep(5)
             ws_connect()

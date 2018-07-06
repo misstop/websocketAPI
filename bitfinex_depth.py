@@ -1,5 +1,6 @@
 import ssl
 import websocket
+import datetime
 import json
 import time
 import requests
@@ -18,8 +19,8 @@ logging.basicConfig(level=logging.DEBUG,
 
 # 本地时间转换为13位
 def cur_time():
-    t1 = time.time()
-    t2 = int(t1 * 1000)
+    t1 = datetime.datetime.now()
+    t2 = t1.strftime("%Y-%m-%d %H:%M:%S")
     return t2
 
 

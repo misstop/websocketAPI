@@ -35,7 +35,7 @@ def kafka_con():
 def ws_connect():
     global ws
     ws = create_connection("wss://api.bitfinex.com/ws/2", sslopt={"cert_reqs": ssl.CERT_NONE},
-                           # http_proxy_host="localhost", http_proxy_port=1080
+                           http_proxy_host="localhost", http_proxy_port=1080
                            )
     # 获取symbol
     symbol = requests.get('https://api.bitfinex.com/v1/symbols')
@@ -72,8 +72,10 @@ while True:
                 # print(maps)
                 logging.info("maps插入一条新的映射")
         if isinstance(detail_ls, list):
+            if detail_ls[1] == "hb" or detail_ls[1] == []:
+                continue
             # 如果返回的是第一个websocket大列表并且对应的socket在映射中
-            if detail_ls[0] in maps.keys() and len(detail_ls[1]) > 3:
+            elif detail_ls[0] in maps.keys() and len(detail_ls[1]) > 3:
                 pair = maps[detail_ls[0]]
                 dic = {
                     "onlyKey": "Bitfinex_" + pair[:3] + '_' + pair[-3:],
@@ -120,7 +122,7 @@ while True:
                 # print(dic)
                 producer.send('depth-dev', [dic])
                 logging.info("send successful > timestamp--%s" % cur_time())
-                # print('send successful')
+                print('send successful')
         else:
             logging.info("类型有误")
             continue
@@ -129,9 +131,11 @@ while True:
             print(e)
             print("ws重连 时间--%s" % cur_time())
             time.sleep(1)
+            maps = {}
             ws_connect()
         except Exception as e:
             print(e)
             print("重连失败，等五秒再次尝试 时间%s" % cur_time())
             time.sleep(5)
+            maps = {}
             ws_connect()

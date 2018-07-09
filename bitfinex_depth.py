@@ -35,7 +35,7 @@ def kafka_con():
 def ws_connect():
     global ws
     ws = create_connection("wss://api.bitfinex.com/ws/2", sslopt={"cert_reqs": ssl.CERT_NONE},
-                           http_proxy_host="localhost", http_proxy_port=1080
+                           # http_proxy_host="localhost", http_proxy_port=1080
                            )
     # 获取symbol
     symbol = requests.get('https://api.bitfinex.com/v1/symbols')
@@ -115,7 +115,6 @@ while True:
                     },
                     "type": 1,
                 }
-                logging.info(dic)
                 producer.send('depth-dev', [dic])
                 logging.info("send successful > timestamp--%s" % cur_time())
                 print('send successful')

@@ -60,12 +60,7 @@ maps = {}
 
 while True:
     try:
-        # try:
         detail_ls = json.loads(ws.recv())
-        # except Exception as e:
-        #     logging.info(e)
-        #     continue
-        # 判断返回的是否为字典
         if isinstance(detail_ls, dict):
             if detail_ls['event'] == 'subscribed':
                 maps[detail_ls['chanId']] = detail_ls['symbol'][1:].upper()
@@ -84,7 +79,8 @@ while True:
                     "tick": {
                         'bids': [],
                         'asks': [],
-                    }
+                    },
+                    "type": 0,
                 }
                 for _ in detail_ls[1]:
                     tem = {
@@ -103,7 +99,7 @@ while True:
             # 判断该id是否在映射记录里面
             elif detail_ls[0] in maps.keys() and len(detail_ls[1]) == 3:
                 pair = maps[detail_ls[0]]
-                change_type = "bid" if detail_ls[1][2] < 0 else 'ask'
+                change_type = "bids" if detail_ls[1][2] < 0 else 'asks'
                 dic = {
                     "onlyKey": "Bitfinex_"+pair[:3]+'_'+pair[-3:],
                     "measurement": "Depth",
@@ -116,10 +112,10 @@ while True:
                                 'amount': detail_ls[1][2],
                             }
                         ]
-                    }
+                    },
+                    "type": 1,
                 }
                 logging.info(dic)
-                # print(dic)
                 producer.send('depth-dev', [dic])
                 logging.info("send successful > timestamp--%s" % cur_time())
                 print('send successful')

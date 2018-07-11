@@ -93,7 +93,7 @@ while True:
                         "unit": pair[7:10],  # 右交易对
                         "volume": _[5]  # 数量
                     }
-                    producer.send('kline-dev', [dic])
+                    producer.send('kline-test', [dic])
                 logging.info("send first %s successful > timestamp--%s" % (pair, cur_time()))
                 print(("send first %s successful > timestamp--%s" % (pair, cur_time())))
             elif detail_ls[0] in maps.keys() and len(detail_ls[1]) == 6:
@@ -112,7 +112,7 @@ while True:
                     "volume": detail_ls[1][5]  # 数量
                 }
                 # print(dic)
-                producer.send('kline-dev', [dic])
+                producer.send('kline-test', [dic])
                 logging.info("%s ---send successful > timestamp--%s" % (dic['onlyKey'], cur_time()))
                 print("%s ---send successful > timestamp--%s" % (dic['onlyKey'], cur_time()))
         else:

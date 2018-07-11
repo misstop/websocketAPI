@@ -8,13 +8,16 @@ import logging
 
 from websocket import create_connection
 from kafka import KafkaProducer
+from flask_apscheduler import APScheduler
+from flask import Flask, jsonify, make_response
 
+app = Flask(__name__)
 # 日志设置
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-                    datefmt='%a, %d %b %Y %H:%M:%S',
-                    filename='bitfinex_depth.log',
-                    filemode='a')
+# logging.basicConfig(level=logging.DEBUG,
+#                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+#                     datefmt='%a, %d %b %Y %H:%M:%S',
+#                     filename='bitfinex_depth.log',
+#                     filemode='a')
 
 
 # 本地时间转换为13位
@@ -48,18 +51,12 @@ def ws_connect():
         ws.send(json.dumps({"event": "subscribe", "channel": "book", "symbol": 't' + sym.upper()}))
 
 
-ws_connect()
-logging.info("ws已发送")
-print('ws已连接')
-kafka_con()
-logging.info("kafka已连接")
-print('kafka已连接')
-
 # 定义一个字典做映射
 maps = {}
 
-while True:
-    try:
+
+def get_detail():
+    while True:
         detail_ls = json.loads(ws.recv())
         if isinstance(detail_ls, dict):
             if detail_ls['event'] == 'subscribed':
@@ -94,14 +91,14 @@ while True:
                         dic['tick']['asks'].append(tem)
                 producer.send('depth-dev', [dic])
                 logging.info("send first %s successful > timestamp--%s" % (pair, cur_time()))
-                print(("send first %s successful > timestamp--%s" % (pair, cur_time())))
+                # print(("send first %s successful > timestamp--%s" % (pair, cur_time())))
 
             # 判断该id是否在映射记录里面
             elif detail_ls[0] in maps.keys() and len(detail_ls[1]) == 3:
                 pair = maps[detail_ls[0]]
                 change_type = "bids" if detail_ls[1][2] < 0 else 'asks'
                 dic = {
-                    "onlyKey": "Bitfinex_"+pair[:3]+'_'+pair[-3:],
+                    "onlyKey": "Bitfinex_" + pair[:3] + '_' + pair[-3:],
                     "measurement": "Depth",
                     "timestamp": cur_time(),
                     "tick": {
@@ -117,20 +114,42 @@ while True:
                 }
                 producer.send('depth-dev', [dic])
                 logging.info("send successful > timestamp--%s" % cur_time())
-                print('send successful')
+                # print('send successful')
         else:
             logging.info("类型有误")
             continue
+
+
+# 端口提供ws重连
+@app.route('/job/restart', methods=['GET', 'POST'])
+def add_task():
+    ws.close()
+    print('ws已经关闭, 正在重连')
+    try:
+        ws_connect()
     except Exception as e:
-        try:
-            print(e)
-            print("ws重连 时间--%s" % cur_time())
-            time.sleep(1)
-            maps = {}
-            ws_connect()
-        except Exception as e:
-            print(e)
-            print("重连失败，等五秒再次尝试 时间%s" % cur_time())
-            time.sleep(5)
-            maps = {}
-            ws_connect()
+        logging.info('连接异常, 等待5秒后重连')
+        print('连接异常, 等待5秒后重连')
+        time.sleep(5)
+        ws_connect()
+    return 'success'
+
+
+@app.route('/')
+def index():
+    return '<h1>OK</h1>'
+
+if __name__ == '__main__':
+    try:
+        ws_connect()
+        print('ws已连接')
+    except Exception as e:
+        logging.info('连接异常, 等待5秒后重连')
+        print('连接异常, 等待5秒后重连')
+        time.sleep(5)
+        ws_connect()
+    kafka_con()
+    logging.info("kafka已连接")
+    print('kafka已连接')
+    app.run(host='0.0.0.0', port=5000, debug=True)
+    get_detail()

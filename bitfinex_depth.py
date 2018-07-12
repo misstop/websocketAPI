@@ -5,6 +5,7 @@ import json
 import time
 import requests
 import logging
+import threading
 
 from websocket import create_connection
 from kafka import KafkaProducer
@@ -132,14 +133,16 @@ def add_task():
         print('连接异常, 等待5秒后重连')
         time.sleep(5)
         ws_connect()
+    kafka_con()
+    logging.info("kafka已连接")
+    print('kafka已连接')
+    get_detail()
     return 'success'
 
 
-@app.route('/')
-def index():
-    return '<h1>OK</h1>'
-
-if __name__ == '__main__':
+# 端口提供ws连接
+@app.route('/job/start', methods=['GET', 'POST'])
+def open_task():
     try:
         ws_connect()
         print('ws已连接')
@@ -151,5 +154,12 @@ if __name__ == '__main__':
     kafka_con()
     logging.info("kafka已连接")
     print('kafka已连接')
-    app.run(host='0.0.0.0', port=5000, debug=True)
     get_detail()
+
+
+@app.route('/')
+def index():
+    return '<h1>OK</h1>'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

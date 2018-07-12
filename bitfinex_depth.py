@@ -9,7 +9,6 @@ import threading
 
 from websocket import create_connection
 from kafka import KafkaProducer
-from flask_apscheduler import APScheduler
 from flask import Flask, jsonify, make_response
 
 app = Flask(__name__)
@@ -56,8 +55,11 @@ def ws_connect():
 maps = {}
 
 
-def get_detail():
+def get_detail(flag):
     while True:
+        if flag == 1:
+            print('循环中止')
+            break
         detail_ls = json.loads(ws.recv())
         if isinstance(detail_ls, dict):
             if detail_ls['event'] == 'subscribed':
@@ -125,7 +127,10 @@ def get_detail():
 @app.route('/job/restart', methods=['GET', 'POST'])
 def add_task():
     ws.close()
-    print('ws已经关闭, 正在重连')
+    print('ws已关闭')
+    get_detail(1)
+    print('循环已关闭')
+    print('正在重连')
     try:
         ws_connect()
     except Exception as e:
@@ -136,8 +141,8 @@ def add_task():
     kafka_con()
     logging.info("kafka已连接")
     print('kafka已连接')
-    get_detail()
-    return 'success'
+    print('开始获取数据')
+    get_detail(0)
 
 
 # 端口提供ws连接
@@ -154,7 +159,8 @@ def open_task():
     kafka_con()
     logging.info("kafka已连接")
     print('kafka已连接')
-    get_detail()
+    print('开始获取数据')
+    get_detail(0)
 
 
 @app.route('/')

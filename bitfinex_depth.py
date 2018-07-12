@@ -53,6 +53,8 @@ def ws_connect():
 
 # 定义一个字典做映射
 maps = {}
+# 定义一个flag
+flag = 0
 
 
 def get_detail(flag):
@@ -128,8 +130,8 @@ def get_detail(flag):
 def add_task():
     ws.close()
     print('ws已关闭')
-    get_detail(1)
-    print('循环已关闭')
+    global flag
+    flag = 1
     print('正在重连')
     try:
         ws_connect()
@@ -146,21 +148,21 @@ def add_task():
 
 
 # 端口提供ws连接
-@app.route('/job/start', methods=['GET', 'POST'])
-def open_task():
-    try:
-        ws_connect()
-        print('ws已连接')
-    except Exception as e:
-        logging.info('连接异常, 等待5秒后重连')
-        print('连接异常, 等待5秒后重连')
-        time.sleep(5)
-        ws_connect()
-    kafka_con()
-    logging.info("kafka已连接")
-    print('kafka已连接')
-    print('开始获取数据')
-    get_detail(0)
+# @app.route('/job/start', methods=['GET', 'POST'])
+# def open_task():
+#     try:
+#         ws_connect()
+#         print('ws已连接')
+#     except Exception as e:
+#         logging.info('连接异常, 等待5秒后重连')
+#         print('连接异常, 等待5秒后重连')
+#         time.sleep(5)
+#         ws_connect()
+#     kafka_con()
+#     logging.info("kafka已连接")
+#     print('kafka已连接')
+#     print('开始获取数据')
+#     get_detail(0)
 
 
 @app.route('/')

@@ -57,7 +57,7 @@ maps = {}
 flag = 0
 
 
-def get_detail(flag):
+def get_detail():
     while True:
         if flag == 1:
             print('循环中止')
@@ -132,6 +132,7 @@ def add_task():
     print('ws已关闭')
     global flag
     flag = 1
+    time.sleep(1)
     print('正在重连')
     try:
         ws_connect()

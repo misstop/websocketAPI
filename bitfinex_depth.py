@@ -143,26 +143,29 @@ def add_task():
     kafka_con()
     logging.info("kafka已连接")
     print('kafka已连接')
+    flag = 0
     print('开始获取数据')
-    get_detail(0)
+    get_detail()
 
 
 # 端口提供ws连接
-# @app.route('/job/start', methods=['GET', 'POST'])
-# def open_task():
-#     try:
-#         ws_connect()
-#         print('ws已连接')
-#     except Exception as e:
-#         logging.info('连接异常, 等待5秒后重连')
-#         print('连接异常, 等待5秒后重连')
-#         time.sleep(5)
-#         ws_connect()
-#     kafka_con()
-#     logging.info("kafka已连接")
-#     print('kafka已连接')
-#     print('开始获取数据')
-#     get_detail(0)
+@app.route('/job/start', methods=['GET', 'POST'])
+def open_task():
+    try:
+        ws_connect()
+        print('ws已连接')
+    except Exception as e:
+        logging.info('连接异常, 等待5秒后重连')
+        print('连接异常, 等待5秒后重连')
+        time.sleep(5)
+        ws_connect()
+    kafka_con()
+    logging.info("kafka已连接")
+    print('kafka已连接')
+    print('开始获取数据')
+    global flag
+    flag = 0
+    get_detail()
 
 
 @app.route('/')

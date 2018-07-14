@@ -35,7 +35,7 @@ def on_message(ws, message):
         "exchange": "Binance",  # 交易所
         "high": data_k['h'],  # 最高
         "low": data_k['l'],  # 最低
-        "measurement": "kline_1d",  # 来源
+        "measurement": "kline_1D",  # 来源
         "onlyKey": "Bitfinex_%s_%s" % (currency_from, currency_to),  # 交易对
         "open": data_k['o'],  # 开盘价
         "symbol": currency_from,  # 左交易对

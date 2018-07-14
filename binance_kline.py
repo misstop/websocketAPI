@@ -43,7 +43,7 @@ def on_message(ws, message):
         "unit": currency_to,  # 右交易对
         "volume": data_k['q']  # 数量
     }
-    producer.send('kline-dev', [dic])
+    producer.send('kline-test', [dic])
     logging.info("send successful > timestamp--%s")
 
 

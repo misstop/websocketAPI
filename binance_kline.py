@@ -36,7 +36,7 @@ def on_message(ws, message):
         "high": data_k['h'],  # 最高
         "low": data_k['l'],  # 最低
         "measurement": "kline_1D",  # 来源
-        "onlyKey": "Bitfinex_%s_%s" % (currency_from, currency_to),  # 交易对
+        "onlyKey": "Binance_%s_%s" % (currency_from, currency_to),  # 交易对
         "open": data_k['o'],  # 开盘价
         "symbol": currency_from,  # 左交易对
         "timestamp": data_k['t'],  # 时间戳
@@ -85,5 +85,6 @@ if __name__ == "__main__":
                              value_serializer=lambda v: json.dumps(v).encode('utf-8'))
     print('kafka已连接')
     ws.on_open = on_open
-    ws.run_forever(http_proxy_host="localhost",
-               http_proxy_port=1080, sslopt={"cert_reqs": ssl.CERT_NONE})
+    ws.run_forever(
+        # http_proxy_host="localhost", http_proxy_port=1080,
+        sslopt={"cert_reqs": ssl.CERT_NONE})

@@ -89,5 +89,5 @@ if __name__ == "__main__":
     print('kafka已连接')
     ws.on_open = on_open
     ws.run_forever(
-        http_proxy_host="localhost", http_proxy_port=1080,
+        # http_proxy_host="localhost", http_proxy_port=1080,
         sslopt={"cert_reqs": ssl.CERT_NONE})

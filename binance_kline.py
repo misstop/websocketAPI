@@ -44,7 +44,7 @@ def on_message(ws, message):
         "volume": data_k['q']  # 数量
     }
     producer.send('kline-test', [dic])
-    logging.info("send successful > timestamp--%s")
+    logging.info("send successful >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
 
 def on_error(ws, error):

@@ -12,12 +12,12 @@ from kafka import KafkaProducer
 from flask import Flask, jsonify, make_response
 
 app = Flask(__name__)
-# 日志设置
-# logging.basicConfig(level=logging.DEBUG,
-#                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
-#                     datefmt='%a, %d %b %Y %H:%M:%S',
-#                     filename='bitfinex_depth.log',
-#                     filemode='a')
+日志设置
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    filename='logs/bitfinex_depth.log',
+                    filemode='a')
 
 
 # 本地时间转换为13位

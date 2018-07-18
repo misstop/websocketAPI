@@ -15,7 +15,7 @@ import time
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%a, %d %b %Y %H:%M:%S',
-                    filename='binance_depth.log',
+                    filename='logs/binance_depth.log',
                     filemode='a')
 
 

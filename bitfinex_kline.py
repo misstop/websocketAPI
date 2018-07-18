@@ -13,7 +13,7 @@ from kafka import KafkaProducer
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%a, %d %b %Y %H:%M:%S',
-                    filename='bitfinex_kline.log',
+                    filename='logs/bitfinex_kline.log',
                     filemode='a')
 
 

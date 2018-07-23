@@ -48,18 +48,23 @@ def on_message(ws, message):
 
 
 def on_error(ws, error):
-    print(error)
+    logging.info(error)
+    ws.close()
 
 
 def on_close(ws):
-    print("### closed ###")
+    logging.info("### closed ###")
+    ws.on_open = on_open
+    ws.run_forever(
+        # http_proxy_host="localhost", http_proxy_port=1080,
+        sslopt={"cert_reqs": ssl.CERT_NONE})
 
 
 def on_open(ws):
     def run(*args):
         # ws.send(json.dumps({"sub": "market.btcusdt.kline.1min", "id": "idd"}))
         # ws.send(json.dumps({"ping": 18212558000}))
-        print("ws start...")
+        logging.info("ws start...")
     thread.start_new_thread(run, ())
 
 

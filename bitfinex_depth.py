@@ -12,7 +12,7 @@ from kafka import KafkaProducer
 from flask import Flask, jsonify, make_response
 
 app = Flask(__name__)
-日志设置
+# 日志设置
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s (filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                     datefmt='%a, %d %b %Y %H:%M:%S',

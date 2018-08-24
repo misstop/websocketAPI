@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84354cb0-2786-42fb-981e-678a5efa46d8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bitfinex_depth.py" afterPath="$PROJECT_DIR$/bitfinex_depth.py" />
-    </list>
+    <list default="true" id="84354cb0-2786-42fb-981e-678a5efa46d8" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +33,7 @@
       <file leaf-file-name="long_live.py" pinned="false" current-in-tab="false">
         <entry file="file://E:/py_demo/ws_test/long_live.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2737">
+            <state relative-caret-position="2898">
               <caret line="126" column="44" lean-forward="false" selection-start-line="126" selection-start-column="44" selection-end-line="126" selection-end-column="44" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -54,12 +52,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binance_depth.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="binance_depth.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/binance_depth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="151">
+              <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +67,8 @@
       <file leaf-file-name="bitfinex_depth.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3414">
-              <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+            <state relative-caret-position="-1689">
+              <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -77,17 +77,17 @@
       <file leaf-file-name="binance_kline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/binance_kline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
+            <state relative-caret-position="207">
               <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bitfinex_kline.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bitfinex_kline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bitfinex_kline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
+            <state relative-caret-position="404">
               <caret line="135" column="24" lean-forward="true" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -155,9 +155,9 @@
         <option value="E:/py_demo/八爪鱼/test.py" />
         <option value="E:/py_demo/八爪鱼/bibox_test.py" />
         <option value="E:/py_demo/无头浏览器/phan_test.py" />
-        <option value="$PROJECT_DIR$/binance_depth.py" />
         <option value="$PROJECT_DIR$/binance_kline.py" />
         <option value="$PROJECT_DIR$/bitfinex_depth.py" />
+        <option value="$PROJECT_DIR$/binance_depth.py" />
       </list>
     </option>
   </component>
@@ -168,8 +168,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="-312" />
+    <option name="y" value="66" />
     <option name="width" value="1938" />
     <option name="height" value="1060" />
   </component>
@@ -189,7 +189,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,6 +203,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -503,10 +503,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
+    <frame x="-312" y="66" width="1938" height="1060" extended-state="1" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15879828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16094421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -514,7 +513,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326257" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40223464" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40223464" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5435028" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -547,13 +546,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="183057">
-          <caret line="7959" column="52" lean-forward="false" selection-start-line="7959" selection-start-column="52" selection-end-line="7959" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -627,13 +620,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log" />
     <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -641,13 +628,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log" />
     <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -655,13 +636,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log" />
     <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -693,13 +668,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/send_msg.log" />
-    <entry file="file://D:/wechat/wechat_files/WeChat Files/wxid_suoa6303nu3e22/Files/sch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="204" column="83" lean-forward="false" selection-start-line="204" selection-start-column="83" selection-end-line="204" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/wechat/wechat_files/WeChat Files/wxid_suoa6303nu3e22/Files/sch.py" />
     <entry file="file://E:/py_demo/ws_test/huobipro_ws.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -735,13 +704,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_kline.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="820">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_kline.log" />
     <entry file="file://E:/python_env/socketEnv/Lib/site-packages/websocket/_app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1656">
@@ -749,13 +712,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="183057">
-          <caret line="7959" column="52" lean-forward="false" selection-start-line="7959" selection-start-column="52" selection-end-line="7959" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/bitfinex_depth.log" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
@@ -763,21 +720,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/binance_kline.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/binance_kline.log" />
     <entry file="file://E:/py_demo/chutan32.py" />
-    <entry file="file://$PROJECT_DIR$/logs/binance_depth.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="777">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/binance_depth.log" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -805,7 +750,7 @@
     <entry file="file://E:/py_demo/无头浏览器/phantom_test.py" />
     <entry file="file://E:/py_demo/ws_test/long_live.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
+        <state relative-caret-position="2898">
           <caret line="126" column="44" lean-forward="false" selection-start-line="126" selection-start-column="44" selection-end-line="126" selection-end-column="44" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -835,14 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/binance_depth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/huobipro_kline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2737">
@@ -859,17 +796,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3414">
-          <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/binance_kline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="207">
           <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding />
         </state>
@@ -877,10 +806,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bitfinex_kline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
+        <state relative-caret-position="404">
           <caret line="135" column="24" lean-forward="true" selection-start-line="135" selection-start-column="24" selection-end-line="135" selection-end-column="24" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bitfinex_depth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1689">
+          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/binance_depth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

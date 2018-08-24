@@ -42,8 +42,7 @@ def on_message(ws, message):
     }
     producer.send('blz-depth-dev', [dic])
     producer.send('blz-depth-test', [dic])
-    producer.flush()
-    logging.info("send successful---")
+    # logging.info("send successful---")
 
 
 def on_error(ws, error):
@@ -51,14 +50,23 @@ def on_error(ws, error):
     # ws.run_forever(
     #     # http_proxy_host="localhost", http_proxy_port=1080,
     #     sslopt={"cert_reqs": ssl.CERT_NONE})
-    logging.info(error)
+    logging.error(error)
     time.sleep(5)
     ws.close()
+    logging.info('ws closed')
+    producer.flush()
+    producer.close()
+    logging.info('kafka closed')
 
 
 def on_close(ws):
     # print("### closed ###")
     logging.info("### closed ###")
+    # kafka连接
+    global producer
+    producer = KafkaProducer(bootstrap_servers='47.75.116.175:9092',
+                             value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    logging.info("kafka reconnect")
     ws.on_open = on_open
     ws.run_forever(
         # http_proxy_host="localhost", http_proxy_port=1080,

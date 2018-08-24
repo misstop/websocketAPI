@@ -40,8 +40,10 @@ def on_message(ws, message):
         },
         "type": 0,
     }
-    producer.send('depth-dev', [dic])
-    logging.info("send successful >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    producer.send('blz-depth-dev', [dic])
+    producer.send('blz-depth-test', [dic])
+    producer.flush()
+    logging.info("send successful---")
 
 
 def on_error(ws, error):
@@ -50,6 +52,7 @@ def on_error(ws, error):
     #     # http_proxy_host="localhost", http_proxy_port=1080,
     #     sslopt={"cert_reqs": ssl.CERT_NONE})
     logging.info(error)
+    time.sleep(5)
     ws.close()
 
 

@@ -3,6 +3,7 @@ import websocket
 import json
 import ssl
 import logging
+import time
 from kafka import KafkaProducer
 
 try:
@@ -19,6 +20,12 @@ logging.basicConfig(level=logging.INFO,
                     filemode='a')
 
 
+def cur_time():
+    t1 = time.time()
+    t2 = int(t1 * 1000)
+    return t2
+
+
 def on_message(ws, message):
     d = json.loads(message)
     if not isinstance(d, dict):
@@ -33,7 +40,7 @@ def on_message(ws, message):
     dic = {
         "onlyKey": "Binance_" + currency_from + '_' + currency_to,
         "measurement": "Depth",
-        "timestamp": '',
+        "timestamp": cur_time(),
         "tick": {
             'bids': [{"price": _[0], "count": _[1], "amount": _[2]} for _ in d_data['bids']],
             'asks': [{"price": _[0], "count": _[1], "amount": _[2]} for _ in d_data['asks']],
